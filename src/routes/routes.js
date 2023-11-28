@@ -38,7 +38,7 @@ routes.get('/users/:id', checkToken, async (req, res) => {
 
 // get movies
 
-routes.get('/movies', async (req, res) => {
+routes.get('/movies', checkToken, async (req, res) => {
     const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
     const options = {
         method: 'GET',
@@ -51,7 +51,7 @@ routes.get('/movies', async (req, res) => {
 
         .then(res => res.json())
         .then(json => {
-            clientRedis.set('lastSearch',  JSON.stringify(json))
+            clientRedis.setEx('lastSearch',60,  JSON.stringify(json))
             res.status(200).json(json)
         })
         .catch(err => console.error('error:' + err));
