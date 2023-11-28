@@ -4,13 +4,22 @@ const cors = require('cors')
 
 const express = require('express');
 
-const connectToDatabase = require('./src/database/connect')
+const rateLimit = require('express-rate-limit');
+
+const connectToDatabase = require('./src/database/connect');
 
 const server = express()
 
 const routes = require('./src/routes/routes')
 
-connectToDatabase() 
+connectToDatabase()
+
+const apiRequestLimiter = rateLimit({
+    windowsMs: 1 * 60 * 1000,
+    max: 50
+})
+
+server.use(apiRequestLimiter)
 
 server.use(cors())
 

@@ -10,10 +10,6 @@ const routes = express.Router();
 
 const fetch = require('node-fetch');
 
-
-
-
-
 routes.use(express.json())
 
 // middleware de autenticação
@@ -51,8 +47,6 @@ routes.get('/users/:id', checkToken, async (req, res) => {
     }
 
     res.status(200).json(user)
-
-
 
 })
 
@@ -124,7 +118,6 @@ routes.post('/auth/register', async (req, res) => {
 
 })
 
-
 // route login 
 
 routes.post('/auth/login', async (req, res) => {
@@ -162,7 +155,5 @@ routes.post('/auth/login', async (req, res) => {
         res.status(404).send(error.message)
     }
 })
-
-
 
 module.exports = routes
