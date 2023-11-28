@@ -2,11 +2,17 @@ const express = require('express');
 
 const UserModel = require('../models/User.model');
 
-const checkToken = require('../middleware/middleware');
+const checkToken = require('../middleware/checkToken');
 
 const bcrypt = require('bcryptjs');
 
 const jwt = require('jsonwebtoken');
+
+const redis = require('redis');
+
+const clientRedis = redis.createClient()
+
+clientRedis.connect()
 
 const routes = express.Router();
 
@@ -32,7 +38,7 @@ routes.get('/users/:id', checkToken, async (req, res) => {
 
 // get movies
 
-routes.get('/movies', checkToken, async (req, res) => {
+routes.get('/movies', async (req, res) => {
     const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
     const options = {
         method: 'GET',
@@ -44,7 +50,10 @@ routes.get('/movies', checkToken, async (req, res) => {
     await fetch(url, options)
 
         .then(res => res.json())
-        .then(json => res.status(200).json(json))
+        .then(json => {
+            clientRedis.set('lastSearch',  JSON.stringify(json))
+            res.status(200).json(json)
+        })
         .catch(err => console.error('error:' + err));
 
 })
@@ -52,7 +61,6 @@ routes.get('/movies', checkToken, async (req, res) => {
 // route register
 
 routes.post('/auth/register', async (req, res) => {
-
 
     const { name, email, password, confirmPassword } = req.body
 
@@ -135,5 +143,6 @@ routes.post('/auth/login', async (req, res) => {
         res.status(404).send(error.message)
     }
 })
+
 
 module.exports = routes

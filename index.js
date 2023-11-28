@@ -4,7 +4,7 @@ const cors = require('cors')
 
 const express = require('express');
 
-const rateLimiter = require('./src/rateLimiter/rateLimiter');
+const rateLimiter = require('./src/Limiter/rateLimiter');
 
 const connectToDatabase = require('./src/database/connect');
 
