@@ -2,6 +2,8 @@ const express = require('express');
 
 const UserModel = require('../models/User.model');
 
+const checkToken = require('../middleware/middleware');
+
 const bcrypt = require('bcryptjs');
 
 const jwt = require('jsonwebtoken');
@@ -11,28 +13,6 @@ const routes = express.Router();
 const fetch = require('node-fetch');
 
 routes.use(express.json())
-
-// middleware de autenticação
-
-const checkToken = (req, res, next) => {
-    const authHeader = req.headers['authorization']
-    const token = authHeader && authHeader.split(" ")[1]
-
-    if (!token) {
-        return res.status(401).json({ msg: "Acesso negado" })
-    }
-
-    try {
-        const secret = process.env.SECRET
-        jwt.verify(token, secret)
-
-        next()
-
-    } catch (error) {
-        res.status(400).send({ msg: "Token inválido " })
-    }
-
-}
 
 // Private Route
 
@@ -50,7 +30,7 @@ routes.get('/users/:id', checkToken, async (req, res) => {
 
 })
 
-// get films
+// get movies
 
 routes.get('/movies', checkToken, async (req, res) => {
     const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
