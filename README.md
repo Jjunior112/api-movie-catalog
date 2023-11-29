@@ -10,7 +10,7 @@ Para que a API funcione corretamente, devem ser criadas em um arquivo .env as se
 
 PORT = 3000
 
-RATE_LIMIT-WINDOWS_MS = 60000
+RATE_LIMIT_WINDOWS_MS = 60000
 
 RATE_LIMIT-MAX_REQUESTS = 50
 
