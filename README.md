@@ -16,11 +16,14 @@ API_KEY = Chave válida na API externa the movie database. https://developer.the
 
 
 Limitador de Requisições
+
 A API implementa um limitador de requisições por minuto usando express-rate-limit. Se o número máximo de requisições for excedido, a resposta será um erro 429 - Too Many Requests.
 
 Cache 
+
 Esta API utilza redis para cache no localhost, certifique de tê-lo instalado e o servidor iniciado na sua máquina.
 
 Contribuição
+
 Este é um projeto com fins acadêmicos, fique à vontade para contribuir com melhorias, correções de bugs ou novos recursos. Abra uma issue para discussões ou envie uma pull request diretamente.
 
