@@ -7,14 +7,20 @@ Este repositório contém uma API Node.js que utiliza JSON Web Tokens (JWT) para
 **Variáveis .env**
 
 Para que a API funcione corretamente, devem ser criadas em um arquivo .env as seguintes variáveis: 
-PORT = 3000
-RATE_LIMIT-WINDOWS_MS = 60000
-RATE_LIMIT-MAX_REQUESTS = 50
-MONGODB_USERNAME = Username do cluster MongoDB
-MONGODB_PASSWORD = Senha do cluster MongoDB
-SECRET = Secret para autenticação do JWT
-API_KEY = Chave válida na API externa the movie database. https://developer.themoviedb.org/docs/getting-started
 
+PORT = 3000
+
+RATE_LIMIT-WINDOWS_MS = 60000
+
+RATE_LIMIT-MAX_REQUESTS = 50
+
+MONGODB_USERNAME = Username do cluster MongoDB
+
+MONGODB_PASSWORD = Senha do cluster MongoDB
+
+SECRET = Secret para autenticação do JWT
+
+API_KEY = Chave válida na API externa the movie database. https://developer.themoviedb.org/docs/getting-started
 
 **Limitador de Requisições**
 
