@@ -10,15 +10,17 @@ Para que a API funcione corretamente, devem ser criadas em um arquivo .env as se
 
 - **PORT** = 3000
 
-- **RATE_LIMIT_WINDOWS_MS** = 60000
+- **RATE_LIMIT_WINDOWS_MS** = 60000 (intervalo para bloquear as requisições que excederam o limite)
 
-- **RATE_LIMIT_MAX_REQUESTS** = 50
+- **RATE_LIMIT_MAX_REQUESTS** = 50 (limite de requisições dentro do tempo definido)
 
 - **MONGODB_USERNAME** = Username do cluster MongoDB
 
 - **MONGODB_PASSWORD** = Senha do cluster MongoDB
 
 - **SECRET** = Secret para autenticação do JWT
+
+- **TIME_EXPIRATION_TOKEN** = 900s (tempo para expiração do token JWT)
 
 - **API_KEY** = Chave válida na API externa [the movie database](https://developer.themoviedb.org/docs/getting-started).
 

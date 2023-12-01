@@ -1,12 +1,12 @@
 const express = require('express');
 
-const login = express.Router()
+const login = express.Router();
 
-login.use(express.json())
+login.use(express.json());
 
 const jwt = require('jsonwebtoken');
 
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
 
 const UserModel = require('../models/User.model');
 
@@ -39,9 +39,9 @@ login.post('/auth/login', async (req, res) => {
         const token = jwt.sign({
             id: user._id
 
-        }, secret,)
+        }, secret, { expiresIn: process.env.TIME_EXPIRATION_TOKEN })
 
-        res.status(200).json({ msg: 'autenticação realizada com sucesso', token })
+        res.status(200).json({ msg: 'autenticação realizada com sucesso', token})
     } catch (error) {
         res.status(404).send(error.message)
     }

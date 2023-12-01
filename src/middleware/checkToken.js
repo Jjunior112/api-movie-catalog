@@ -16,7 +16,7 @@ const checkToken = (req, res, next) => {
         next()
 
     } catch (error) {
-        res.status(400).send({ msg: "Token inválido " })
+        res.status(400).send({ msg: "Erro na autenticação, refaça o login " })
     }
 
 }
