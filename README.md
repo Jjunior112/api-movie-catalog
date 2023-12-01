@@ -32,6 +32,24 @@ A API implementa um limitador de requisições por minuto usando express-rate-li
 
 Esta API utilza redis para cache no localhost na porta padrão, certifique de tê-lo instalado e o servidor iniciado na sua máquina.
 
+### Rotas
+
+- **/** = mensagem de boas vindas à api
+- **/auth/register** = rota para registro de novo usuário
+  ##### requisitos para registro
+    - Nome
+    - email
+    - senha
+    - confirmação de senha (apenas para autenticação, não sobe para o banco de dados)
+      
+ - **/auth/login** = rota para registro de novo usuário
+   
+   ##### requisitos para login
+    - email
+    - senha
+      
+  - **/movies** = integração com api extrerna para retornar o catalogo de filmes
+
 ### Contribuição
 
 Este é um projeto com fins acadêmicos, fique à vontade para contribuir com melhorias, correções de bugs ou novos recursos. Abra uma issue para discussões ou envie uma pull request diretamente.
