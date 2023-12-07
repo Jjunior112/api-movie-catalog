@@ -6,6 +6,8 @@ const register = require('../controllers/registerController');
 
 const movies = require('../controllers/moviesController');
 
+const favMovies =  require('../controllers/favMovieController');
+
 const users = require('../controllers/usersController');
 
 const routes = express();
@@ -26,5 +28,8 @@ routes.use(register)
 
 routes.use(login)
 
+//favorite movies
+
+routes.use(favMovies)
 
 module.exports = routes
