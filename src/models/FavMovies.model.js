@@ -11,6 +11,6 @@ const FavMoviesSchema = new mongoose.Schema({
     }
 })
 
-const FavMoviesModel = mongoose.model('Favorites',FavMoviesSchema)
+const FavMoviesModel = mongoose.model('Favorite',FavMoviesSchema)
 
 module.exports =FavMoviesModel

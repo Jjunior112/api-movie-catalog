@@ -16,7 +16,7 @@ connectToDatabase()
 
 server.use(rateLimiter)
 
-server.use(cors())
+server.use(cors()) 
 
 server.use(routes)
 
