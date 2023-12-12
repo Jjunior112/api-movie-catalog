@@ -49,7 +49,9 @@ Esta API utilza redis para cache no localhost na porta padrão, certifique de t�
     - senha
       
   - **/movies** = integração com api extrerna para retornar o catalogo de filmes
-
+    
+  - **/favorites/id** = rota post e get para adicionar e visualizar lista de filmes favoritados pelo usuário
+    
 ### Contribuição
 
 Este é um projeto com fins acadêmicos, fique à vontade para contribuir com melhorias, correções de bugs ou novos recursos. Abra uma issue para discussões ou envie uma pull request diretamente.
