@@ -28,10 +28,6 @@ Para que a API funcione corretamente, devem ser criadas em um arquivo .env as se
 
 A API implementa um limitador de requisições por minuto usando express-rate-limit. Se o número máximo de requisições for excedido, a resposta será um erro 429 - Too Many Requests.
 
-### Cache
-
-Esta API utilza redis para cache no localhost na porta padrão, certifique de tê-lo instalado e o servidor iniciado na sua máquina.
-
 ### Rotas
 
 - **/** = mensagem de boas vindas à api
