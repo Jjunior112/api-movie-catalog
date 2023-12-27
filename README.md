@@ -48,6 +48,9 @@ A API implementa um limitador de requisições por minuto usando express-rate-li
     
   - **/favorites/id** = rota post e get para adicionar e visualizar lista de filmes favoritados pelo usuário
     
+      - A rota para favoritar um filme se dá por um método **POST** em que deve conter no body da requisição o nome do filme a ser favoritado
+      - Há também a rota **GET** para visualizar a lista de filmes favoritados 
+    
 ### Contribuição
 
 Este é um projeto com fins acadêmicos, fique à vontade para contribuir com melhorias, correções de bugs ou novos recursos. Abra uma issue para discussões ou envie uma pull request diretamente.
